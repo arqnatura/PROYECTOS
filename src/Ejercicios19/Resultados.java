@@ -31,10 +31,10 @@ public class Resultados {
 			}
 					// Ahora si ordenamos por puntos..
 			
-			Set<EntrySet> entrada = mapaOrdenadoPuntos
+			//Set<EntrySet> entrada = mapaOrdenadoPuntos
 					
-			ArrayList<Integer> valoresPuntos = new ArrayList <Integer>(mapaOrdenadoPuntos , get.values());
-			Collections.sort(valoresPuntos);
+			//ArrayList<Integer> valoresPuntos = new ArrayList <Integer>(mapaOrdenadoPuntos , get.values());
+			//Collections.sort(valoresPuntos);
 			
 		}		
 				
