@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import modelo.Equipo;
 
-public class Resultados {
+public class Resultados   {
 		
 		// 31 de enero 2019
 		
