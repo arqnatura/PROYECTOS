@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,26 +22,27 @@ import javax.swing.JPanel;
 import modelo.Equipo;
 
 public class Resultados     {
+	
+	
 		
-		// 31 de enero 2019
-		
-		public void muestraPuntosOrdenadoEquipos (HashMap<String, ArrayList<Integer>> resultados){
-					// recorrer el HashMap previamente ordenado
-			HashMap<String, Integer> mapaOrdenadoPuntos = new HashMap <String, Integer>();
-					// obtenemos la lista de claves (K)			
-			for (String clave : resultados.keySet()) {
-				ArrayList<Integer> datos = resultados.get(clave);
-				int puntos = datos.get(0)*3 + datos.get(1);
-				mapaOrdenadoPuntos.put (clave , puntos);
-			}
-					// Ahora si ordenamos por puntos..
-			
-			//Set<EntrySet> entrada = mapaOrdenadoPuntos
-					
-			//ArrayList<Integer> valoresPuntos = new ArrayList <Integer>(mapaOrdenadoPuntos , get.values());
-			//Collections.sort(valoresPuntos);
-			
-		}		
+	// 5 de febrero 2019
+	
+		public void ordenarMapaPuntosEquipos (HashMap<String,Integer> puntosEquipos)
+		{
+			Set<Entry<String, Integer>> set = puntosEquipos.entrySet();
+	        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+	        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
+	        {
+	            public int compare( Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2 )
+	            {
+	                return (o2.getValue()).compareTo( o1.getValue() );
+	            }
+	        } );
+	        for(Map.Entry<String, Integer> entry:list){
+	            System.out.println(entry.getKey()+" ==== "+entry.getValue());
+	        }
+		}
+				
 				
 		
 		
@@ -194,9 +200,15 @@ public class Resultados     {
 
 	public static void main(String[] args) {
 		Resultados ejercicios = new Resultados();
+		
+		HashMap<String, ArrayList<Integer>> resultados = ejercicios.resultadosEquipos("ficheros/partidos.txt");
+		//HashMap<String, Integer> puntosEquipos = ejercicios.ordenarMapaPuntosEquipos(resultados);
+		
 		ejercicios.pruebaSWING();
 		HashMap<String, ArrayList<Integer>> x = ejercicios.resultadosEquipos("ficheros/partidos.txt");
 		ejercicios.muestraPuntosEquipos(x);
+		
+
 
 	}
 
