@@ -23,6 +23,7 @@ import modelo.Equipo;
 
 public class Resultados     {
 	
+	 
 	
 		
 	// 5 de febrero 2019
